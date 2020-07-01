@@ -33,11 +33,13 @@ def docker_container_cleaner():
     그다음 해당 각 컨데이너 마다 값을 추출하기 위해 데몬 접근해서 inspect_container 사용 
      container_inspect --> (docker inspect <container name or number>)
     """
+    output = [] # 추가 부분 2020/07/01 PM 19:25
     for event in container:
         data_change = str(event)
         data_change = data_change.strip("Container<>:")
         finally_data = data_change.strip(string.punctuation + " ")
         container_inspect = client.api.inspect_container(container=finally_data)
-
+        output.append(container_inspect) # 추가 부분 2020/07/01 PM 19:25
+    return output # 추가 부분 2020/07/01 PM 19:25
 if __name__ == "__main__":
     print("container ->", docker_information())
