@@ -22,6 +22,8 @@ def create_docker():
     for line in client.pull("busybox", stream=True):
         print(json.dumps(json.loads(line), indent=4))
     """
+    for line in client.pull("busybox", stream=True):
+        print(json.dumps(json.loads(line), indent=4))
     # container 생성
     container = client.create_container(image="busybox:latest", command="/bin/sleep 30")
     # 생성된 container inspect
