@@ -8,7 +8,8 @@ CREATE TABLE user(
     username varchar(10) not null,
     created_at datetime not null default current_timestamp on update current_timestamp,
     updated_at datetime not null default current_timestamp on update current_timestamp,
-    PRIMARY KEY(idx)
+    PRIMARY KEY(idx),
+    UNIQUE KEY (ID)
 );
 
 -- docker container에 관한 정보
