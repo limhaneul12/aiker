@@ -1,8 +1,6 @@
 import docker
 import json
-
-
-from docker import DockerClient
+import pandas as pd
 
 def create_docker():
     '''
@@ -16,16 +14,16 @@ def create_docker():
     '''
 
     #docker remote API와 통신할 길 뚫는 작업
-    client = docker.APIClient(base_url='http://127.0.1.1:4243')
-    """
+    client = docker.APIClient(base_url='tcp://0.0.0.0:4323')
+
     # docker hub에서 이미지 다운 여기서 먼저 이미지 다운 받을 것
-    for line in client.pull("busybox", stream=True):
+    image_download = input("download image >")
+    for line in client.pull(image_download, stream=True):
         print(json.dumps(json.loads(line), indent=4))
-    """
-    for line in client.pull("busybox", stream=True):
-        print(json.dumps(json.loads(line), indent=4))
+
     # container 생성
-    container = client.create_container(image="busybox:latest", command="/bin/sleep 30")
+    container = client.create_container(image=image_download, command=input("command >"))
+    print(container)
     # 생성된 container inspect
     """
      curl -L http://127.0.1.1:4243/containers/json?all=1      
@@ -53,7 +51,14 @@ def create_docker():
     port = container_inspect[0]["Ports"]
     Command = container_inspect[0]["Command"]
     test_info = [Id, Name, Image, port, Command]
+    print(test_info)
+    print()
 
-    return test_info
+   #데이터셋 만들기 while문으로 조건 반복 실행해서 한번이 아니라 여러 이미지 다운 받을 수 있게 할 수 있을듯 
+    pd_arch = pd.DataFrame({"Id": [Id], "Name": [Name], "Image": [Image], "ports": [port], "Command": [Command]})
+    pd_arch.to_csv("test.csv", index=False)
+    return test_info, pd_arch
+
+
 if __name__ == "__main__":
     print(create_docker())
