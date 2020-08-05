@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+<style>
+  body{
+  margin: 0;
+  padding: 0;
+  font-family:맑은고딕, Malgun Gothic, dotum, gulim, sans-serif;
+}
+.searchbox{
+  width: 90%;
+  margin: 10px auto;
+}
+.header{
+  /*background: #333366;*/
+  background-image: url('banner.jpg');
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+}
+.header h1{
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
+  margin-bottom: 8px;
+}
+#value{
+  border: none;
+  background: white;
+  padding: 6px;
+  font-size: 18px;
+  width: 80%;
+  border-radius: 6px;
+  color:black;}
+#value:focus{
+  outline: none;
+}
+.container{
+  background:white;
+  padding: 1%;
+}
+.item{
+  margin: 3% 0px;
+  display: flex;
+  align-items: center;
+}
+.icon{
+  width: 25px;
+  height: 25px;
+  background: #333366;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.name{
+  font-size: 17px;
+  font-weight: 470;
+  color: #333;
+}
+  </style>
+</head>
+<body>
+   <div class="searchbox">
+      <div class="header">
+
+        <h1>Search</h1>
+        <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
+      </div>
+
+      <div class="container">
+
+        <div class="item">
+          <span class="icon">1</span>
+          <span class="name"><a href="con.html">11</span>
+        </div>
+
+        <div class="item">
+          <span class="icon">2</span>
+          <span class="name">212</span>
+        </div>
+
+        <div class="item">
+          <span class="icon">3</span>
+          <span class="name">332</span>
+        </div>
+
+        <div class="item">
+          <span class="icon">4</span>
+          <span class="name">434</span>
+        </div>
+
+        <div class="item">
+          <span class="icon">5</span>
+          <span class="name">55</span>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function filter(){
+
+        var value, name, item, i;
+
+        value = document.getElementById("value").value.toUpperCase();
+        item = document.getElementsByClassName("item");
+
+        for(i=0;i<item.length;i++){
+          name = item[i].getElementsByClassName("name");
+          if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
+            item[i].style.display = "flex";
+          }else{
+            item[i].style.display = "none";
+          }
+        }
+      }
+</script>
+</body>
+</html>
