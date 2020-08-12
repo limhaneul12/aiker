@@ -30,7 +30,7 @@ class my_handler(BaseHTTPRequestHandler):
 
         return set
 
-    def create_docker(self):
+    def create_docker(self,ID, name, image, port, command):
         result = []
         # docker remote API와 통신할 길 뚫는 작업
         global pd_arch, container
@@ -92,13 +92,17 @@ class my_handler(BaseHTTPRequestHandler):
             conn = pymysql.connect(host='localhost', user='root', password='root1234', charset='utf8')
             cursor = conn.cursor()
 
-            sql = "insert into docker (ID,name,image,port,command,label_idx) values ({},{},{},{},{},{})"\
+            sql = "insert into docker (ID,name,image,port,command,label_idx) values ('{}','{}','{}','{}','{}','{}')"\
                 .format(kv['ID'], kv['name'], kv['image'], kv['port'], kv['command'], kv['label_idx'])
 
             cursor.execute(sql)
 
             conn.commit()
             conn.close()
+
+
+
+
 
 
 

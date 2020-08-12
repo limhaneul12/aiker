@@ -9,7 +9,7 @@ import requests
 url = 'http://localhost:8000/create_docker'
 
 #도커 생성
-params = {'id':'334434' , 'name':'/busybox1' , 'image':'busybox' , 'port':'8000' , 'command':'test/image1'}
+params = {'ID':'334435' , 'name':'/busybox2' , 'image':'busybox' , 'port':'8000' , 'command':'test/image2', 'label_idx' : '0'}
 res = requests.post(url=url, params=params)
 print(res.text)
 

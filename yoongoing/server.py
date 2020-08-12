@@ -2,7 +2,7 @@ import pymysql
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import requests
 
-host = "http://localhost"
+host = "db-4l33j.pub-cdb.ntruss.com"
 port = 8000
 
 class my_handler(BaseHTTPRequestHandler):
@@ -38,18 +38,22 @@ class my_handler(BaseHTTPRequestHandler):
 
 
         if(request == '/create_docker'):
-            res = requests.post(url=url, params=params)
+            # res = requests.post(url=url, params=params)
 
-            conn = pymysql.connect(host='localhost', user='root', password='root1234', charset='utf8')
+            conn = pymysql.connect(host='db-4l33j.pub-cdb.ntruss.com', user='aiker', password='aiker1234*',\
+                                   charset='utf8', port=3306, database='aiker')
             cursor = conn.cursor()
 
-            sql = "insert into docker (ID,name,image,port,command,label_idx) values ({},{},{},{},{},{})"\
+            sql = "insert into docker (ID,name,image,port,command,label_idx) values ('{}','{}','{}','{}','{}','{}')"\
                 .format(kv['ID'], kv['name'], kv['image'], kv['port'], kv['command'], kv['label_idx'])
+
 
             cursor.execute(sql)
 
             conn.commit()
             conn.close()
+
+            print("/create_docker")
 
 
 
