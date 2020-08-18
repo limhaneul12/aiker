@@ -6,7 +6,7 @@ import requests
 
 
 
-url = 'http://localhost:8000/create_docker'
+url = 'http://192.168.1.190:8000/create_docker'
 
 #도커 생성
 params = {'ID':'334435' , 'name':'/busybox2' , 'image':'busybox' , 'port':'8000' , 'command':'test/image2', 'label_idx' : '0'}
