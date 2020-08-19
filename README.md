@@ -46,23 +46,23 @@
 > search 버튼을 눌러 list 화면으로 이동
 
 
-8. create
-<img src="./ui/create.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="create"></img>
+8. create   
+<img src="./ui/create.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="create"></img>   
 > 새 컨테이너 등록 버튼을 눌러 정보 입력 후 create 
 
 
-9. list
-<img src="./ui/list.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="list"></img>
-> create 한 컨테이너 목록 확인
-<img src="./ui/label_list.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="list"></img>
-> label 누르면 해당 label에 있는 전체 컨테이너 목록이 보여짐
+9. list   
+<img src="./ui/list.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="list"></img>   
+> create 한 컨테이너 목록 확인   
+<img src="./ui/label_list.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="list"></img>   
+> label 누르면 해당 label에 있는 전체 컨테이너 목록이 보여짐   
 
 
-10. delete
-<img src="./ui/list.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="list"></img>
-> 컨테이너 목록 오른쪽에 자신이 create한 컨테이너만 삭제 가능
+10. delete   
+<img src="./ui/list.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="list"></img>   
+> 컨테이너 목록 오른쪽에 자신이 create한 컨테이너만 삭제 가능   
 
 
-11. 컨테이너 정보 확인
-<img src="./ui/컨테이너정보.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="컨테이너정보"></img>
-> 해당 컨테이너 정보 확인
+11. 컨테이너 정보 확인   
+<img src="./ui/컨테이너정보.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="컨테이너정보"></img>   
+> 해당 컨테이너 정보 확인   
