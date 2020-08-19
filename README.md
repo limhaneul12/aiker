@@ -37,14 +37,12 @@
 <img src="./ui/main.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="main"></img>
 <img src="./ui/join.png" width="45%" height="80%" title="px(픽셀) 크기 설정" alt="join"></img>
 <img src="./ui/login.png" width="45%" height="80%" title="px(픽셀) 크기 설정" alt="login"></img>
-
 > 메인페이지에서 회원가입과 로그인 하기.
 
 
 7. search, list 화면
 <img src="./ui/main2.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="main2"></img>
 <img src="./ui/search.png" width="90%" height="80%" title="px(픽셀) 크기 설정" alt="search"></img>
-
 > search 버튼을 눌러 list 화면으로 이동
 
 
