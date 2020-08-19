@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <title>AIker_search</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 맑은고딕, Malgun Gothic, dotum, gulim, sans-serif;
+            }
+            .searchbox {
+                width: 90%;
+                margin: 10px auto;
+            }
+            .header {
+                /*background: #333366;*/
+                background-image: url('/images/banner.jpg');
+                overflow: hidden;
+                padding: 20px;
+                text-align: center;
+            }
+            .header h1 {
+                text-transform: uppercase;
+                color: white;
+                margin: 0;
+                margin-bottom: 8px;
+            }
+            #value {
+                border: none;
+                background: white;
+                padding: 6px;
+                font-size: 18px;
+                width: 80%;
+                border-radius: 6px;
+                color: black;
+            }
+            #value:focus {
+                outline: none;
+            }
+            .container {
+                background: white;
+                padding: 1%;
+            }
+            .item {
+                margin: 3% 0px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .item-front {
+                display: flex;
+                align-items: center;
+            }
+            .icon {
+                width: 25px;
+                height: 25px;
+                background: #333366;
+                color: white;
+                font-size: 15px;
+                text-align: center;
+                line-height: 25px;
+                border-radius: 50%;
+                margin-right: 8px;
+            }
+            .name {
+                font-size: 17px;
+                font-weight: 470;
+                color: #333;
+            }
+            .name a {
+                text-decoration: none;
+            }
+            .name a:visited {
+                color: inherit;
+            }
+            .submit-button {
+                background-color: #333366;
+                color: white;
+            }
+            .delete_form {
+                margin-left: 56px;
+                float: right;
+            }
+            /* .sel {
+                margin-left: 85%;
+                margin-top: 13px;
+                width: 105px;
+                height: 50px;
+                font-family: 맑은고딕, Malgun Gothic, dotum, gulim, sans-serif;
+            } */
+            .label-list {
+                display: flex;
+                width: 80%;
+                margin: 14px auto;
+            }
+            .label-list a {
+                text-decoration: none;
+            }
+            .label {
+                height: 20px;
+                margin-right: 14px;
+                padding: 6px 10px;
+                font-size: 20px;
+                border-radius: 8px;
+                color: white;
+                background-color: #333366;
+                cursor: pointer;
+            }
+            .label:hover {
+                background-color: #333399;
+            }
+            .create-container {
+                margin-top: 2em;
+                text-align: end;
+            }
+            .create-container a {
+                padding: 0.4em 0.8em;
+                text-decoration: none;
+                color: white;
+                background-color: #333366;
+                font-weight: bold;
+                border-radius: 4px;
+            }
+            .create-container a:hover {
+                background-color: #333399;
+            }
+            .create-container a:visited {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="searchbox">
+            <div class="header">
+                <h1>Search</h1>
+                <input
+                    onkeyup="filter()"
+                    type="text"
+                    id="value"
+                    placeholder=" Type to Search"
+                />
+                <div>
+                    <div class="label-list">
+                        <% labels.forEach(function(label) { %>
+                        <a href="/labels/<%= label %>">
+                            <div class="label">
+                                <%= label %>
+                            </div>
+                        </a>
+                        <% }) %>
+                    </div>
+                    <!-- <select class="sel">
+                        <option selected>All</option>
+                        <option>Download List</option>
+                    </select> -->
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="create-container">
+                    <a href="/con-editor">새 컨테이너 등록</a>
+                </div>
+                <% dockers.forEach(function(docker, index) { %>
+                <div class="item">
+                    <div class="item-front">
+                        <div class="icon"><%= (index+1) %></div>
+                        <span class="name"
+                            ><a href="/con/<%= docker.id %>"
+                                ><%= docker.name %></a
+                            ></span
+                        >
+                    </div>
+
+                    <form
+                        action="/dockers/delete/<%= docker.id %>"
+                        method="post"
+                        class="delete_form"
+                    >
+                        <input type="hidden" name="_method" value="delete" />
+                        <% if (user_id === docker.fk_user_id) { %>
+                        <input
+                            type="submit"
+                            class="submit-button"
+                            value="삭제"
+                        />
+                        <% } %>
+                    </form>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function filter() {
+                var value, name, item, i
+
+                value = document.getElementById('value').value.toUpperCase()
+                item = document.getElementsByClassName('item')
+
+                for (i = 0; i < item.length; i++) {
+                    name = item[i].getElementsByClassName('name')
+                    if (name[0].innerHTML.toUpperCase().indexOf(value) > -1) {
+                        item[i].style.display = 'flex'
+                    } else {
+                        item[i].style.display = 'none'
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
