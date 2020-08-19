@@ -1,0 +1,1 @@
+{"version":3,"file":"checkAuth.js","sourceRoot":"","sources":["../../src/lib/checkAuth.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,MAAM,SAAS,GAAG,CAAO,GAAG,EAAE,GAAG,EAAE,IAAI,EAAE,EAAE;IACvC,aAAa;IACb,IAAI,CAAC,GAAG,CAAC,OAAO,CAAC,IAAI,EAAE;QACnB,OAAO,GAAG,CAAC,QAAQ,CAAC,GAAG,CAAC,CAAA;KAC3B;IACD,OAAO,IAAI,EAAE,CAAA;AACjB,CAAC,CAAA,CAAA;AAED,kBAAe,SAAS,CAAA"}
