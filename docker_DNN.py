@@ -28,17 +28,3 @@ model.save("test_docker_dnn.h5")
 loss_and_metrics = model.evaluate(X_test, y_test, batch_size=10)
 print('')
 print('loss_and_metrics : ' + str(loss_and_metrics))
-
-# 6. 모델 사용하기
-xhat_idx = np.random.choice(X_test.shape[0], 1000)
-xhat = X_test[xhat_idx]
-yhat = model.predict(xhat)
-
-result = 0
-loss = 0
-for i in range(1000):
-    if str(argmax(y_test[xhat_idx[i]])) == str(yhat[i]):
-        result += 1
-    else:
-        loss += 1
-print("result > {}, loss > {}".format(result, loss))
