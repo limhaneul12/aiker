@@ -28,7 +28,7 @@ while True:
     elif continue_ in ["yes", "y"]:
         continue
 
-=======
+
 url = 'http://192.168.0.23:8000/create_docker'
 
 #도커 생성
@@ -45,7 +45,7 @@ while True:
         break
     elif continue_ in ["yes", "y"]:
         continue
->>>>>>> cdcd20951812e1910d45c2156ced410af60d763b
+
 # url = 'http://localhost:8000/list'
 # #도커 조회
 # params = {'id':'334434'}
