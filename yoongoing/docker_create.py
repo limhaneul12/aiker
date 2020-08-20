@@ -9,7 +9,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.preprocessing import LabelEncoder
-
+from tensorflow.keras.models import load_model
 
 port = 8000
 
@@ -87,18 +87,10 @@ class my_handler(BaseHTTPRequestHandler):
         return data
 
     def DNN(self, data):
-        
+
         X = data.values[:, :data.shape[1] - 1]
         y = data.values[:, data.shape[1] - 1]
-        model = Sequential()
-        model.add(Dense(5, activation="relu", input_dim=4))
-        model.add(Dense(2, activation="relu"))
-        model.add(Dense(2, activation="relu"))
-        model.add(Dense(2, activation="relu"))
-        model.add(Dense(1, activation="sigmoid"))
 
-        model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["acc"])
-        model.fit(X, y, epochs=100, batch_size=1, verbose=1)
         print("acc: {} ".format(model.evaluate(X, y)))
         
         pred = model.predict_classes(X)
@@ -152,8 +144,10 @@ class my_handler(BaseHTTPRequestHandler):
 
 
 
-httpd = HTTPServer(('localhost', port), my_handler)
+httpd = HTTPServer(('0.0.0.0', port), my_handler)
 print('Server running on port : 8000')
 httpd.serve_forever()
+
+
 
 

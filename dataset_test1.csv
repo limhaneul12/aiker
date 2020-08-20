@@ -1,0 +1,2 @@
+Id,Name,Command,port,Image
+de9327d4dff6ec114e8466ba7eb0b6323e4746f192b1126a3c0d392360f2366d,['/maven'],/usr/local/bin/mvn-entrypoint.sh images,[],maven

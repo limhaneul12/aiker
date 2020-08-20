@@ -2,6 +2,13 @@ import docker
 import string
 import sys # 모듈 추가 2020/07/03 PM 19시 17분
 import pandas as pd
+import numpy as np
+
+from numpy import argmax
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from sklearn.model_selection import train_test_split
+
 """
 pandas -> DataFrame 만들기 위한 장치
 string -> 전처리(containers.list --> 이 당시 나의 도커 일련 번호[<Container: b039b77148>, <Container: afceb74e10>]
@@ -55,8 +62,17 @@ if __name__ == "__main__":
     """
     docker_container_cleaner() 
     data1 = sys.argv # argv[변수를 담을 수 있는 공간] 데이터 타입이 list 타입인걸 확인 
-    data2 = data1 + list(docker_container_cleaner()) # docker_container_cleaner() 함수를 리스트화 시켜 argv 화 합병 
-    print(data2[1]) # meta data 송신
-    print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-    pd_data = pd.DataFrame(docker_container_cleaner())
-    print(pd_data) # 데이터 프레임 송신 
+    data2 = data1 + list(docker_container_cleaner()) # docker_container_cleaner() 함수를 리스트화 시켜 argv 화 합병
+    print("------------------------------------------------------------------------------------------------------------------------------")
+    print(data2)
+    id = data2[1]['Id']
+    name = data2[1]['Name']
+    port = data2[1]["NetworkSettings"]['Ports']
+    command = data2[1]["Config"]['Cmd']
+    image = data2[1]["Config"]['Image']
+
+    result = []
+    data_save = [id, name, port, command, image]
+    result.append(data_save)
+    pd_arch = pd.DataFrame(result, columns=['ID', 'name', 'port', 'command', 'image'])
+    print(pd_arch)
