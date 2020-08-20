@@ -12,8 +12,8 @@ url = 'http://0.0.0.0:8000/create_docker'
 #도커 생성
 
 while True:
-    image = urllib.parse.unquote(input("image >"))
-    command = urllib.parse.unquote(input("command >"))
+    image = urllib.parse.urlencode(input("image >"))
+    command = urllib.parse.urlencode(input("command >"))
 
     params = {'name': input("name >"), 'image': image,
               'port': '8000', 'command': command,
