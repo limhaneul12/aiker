@@ -53,7 +53,7 @@ class my_handler(BaseHTTPRequestHandler):
         
         # 끝나면 데이터셋 생성
         result.append(data_save)
-        
+
         pd_arch = pd.DataFrame(result, columns=['ID', 'name', 'port', 'command', 'image'])
         print(pd_arch)
         
