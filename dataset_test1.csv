@@ -1,2 +1,10 @@
 Id,Name,Command,port,Image
-de9327d4dff6ec114e8466ba7eb0b6323e4746f192b1126a3c0d392360f2366d,['/maven'],/usr/local/bin/mvn-entrypoint.sh images,[],maven
+2ad6323821c7982532f0089b47f64c3e0fea7edb6cc0e312867251bf9d6dfe04,['/hellowrld'],test/image,[],hello-world
+1552b4f943b2fdd5141d49ff344e7ba40c17657aac1e76ce3b580c2fcec919eb,['/bash'],docker-entrypoint.sh test/imags,[],bash
+7d2d6997c88c6ead9e3ecee196e078e40bbf4a0f1462c9de0ccb9edb559b8f05,['/python2'],test/images,[],python:2
+dd6832450e50b0c69920cc3f16a1b24acb1945c9870af492ee7dd539612d7bef,['/python3'],test/images,[],python:3
+9ec22f9efa3041c3dcba366cc3860a4b6fe9e33bba11f5ae9d035279b2304e37,['/postgres'],docker-entrypoint.sh test/images,[],postgres
+19318298aa3664c091c37b71bfd16b4cae9f21c11fcf533674a176a39d8afdfe,['/busybox'],test/images,[],busybox
+c10584c132d8a7785c4f0b54045fe01043afce2504dc3dd79fe05cc2677da88c,['/ghost1.18'],docker-entrypoint.sh test/images,[],ghost:1.18
+73bf4856a9c962abff191693e17365aad0ef90b62b4e151b7eab6360a9c8b78d,['/ubuntu'],test/images,[],ubuntu
+0defe5c5607f3d18aae7f74fd4545d722070d0416f4bff60e08c9c39f2b3ca76,['/registry'],/entrypoint.sh test/images,[],registry

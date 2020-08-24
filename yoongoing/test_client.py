@@ -27,8 +27,6 @@ while True:
         continue
 
 
-
-
 # url = 'http://localhost:8000/list'
 # #도커 조회
 # params = {'id':'334434'}

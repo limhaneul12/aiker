@@ -55,24 +55,3 @@ def docker_container_cleaner():
     return output # 추가 부분 2020/07/01 PM 19:25
 
 if __name__ == "__main__":
-    # 새롭게 만듬 python (node_js 로 데이터를 보내는쪽) 
-    # 나는 이렇게 작성했으나 원했던 니즈가 아닐 수 있음 절대적 지표는 아니기에 분석 후 재수정 요망
-    """
-     2020/07/03 PM 19시 17분 추가 
-    """
-    docker_container_cleaner() 
-    data1 = sys.argv # argv[변수를 담을 수 있는 공간] 데이터 타입이 list 타입인걸 확인 
-    data2 = data1 + list(docker_container_cleaner()) # docker_container_cleaner() 함수를 리스트화 시켜 argv 화 합병
-    print("------------------------------------------------------------------------------------------------------------------------------")
-    print(data2)
-    id = data2[1]['Id']
-    name = data2[1]['Name']
-    port = data2[1]["NetworkSettings"]['Ports']
-    command = data2[1]["Config"]['Cmd']
-    image = data2[1]["Config"]['Image']
-
-    result = []
-    data_save = [id, name, port, command, image]
-    result.append(data_save)
-    pd_arch = pd.DataFrame(result, columns=['ID', 'name', 'port', 'command', 'image'])
-    print(pd_arch)

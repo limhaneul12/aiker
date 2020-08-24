@@ -1,2 +1,2 @@
 ID,name,port,command,image
-b122d3665e05881e244bf1ce0393b16622a6d5db9ee63302fe51417f018aecbd,busybox,8000,test%2Fimage2,busybox
+0a0977ccece0ad85dbbe42ab8a664d7a94a0149dce68a8b9567e507a6dc47872,hello-world,8000,test%2Fimages,hello-world
